@@ -1,0 +1,86 @@
+// Imports
+@import "./variables";
+
+// Portfolio Grid
+
+.portfolio-grid {
+  width: 90%;
+  margin: 80px auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+
+  .portfolio-profile {
+    overflow: hidden;
+    width: 100%;
+    border-radius: $borderRadiusPortfolio;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    @include flexCenter();
+
+    &:hover {
+      img {
+        opacity: 0;
+        transform: scale(1.05);
+      }
+      .read-more {
+        opacity: 0.8;
+      }
+    }
+
+    //Add a Background Color For Fade
+    &::before {
+      content: "";
+      position: absolute;
+      border-radius: inherit;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: #0b0918ee;
+      z-index: -2;
+    }
+
+    .read-more {
+      position: absolute;
+      background-color: white;
+      border-radius: $borderRadiusPortfolio;
+      border: none;
+      width: 100px;
+      height: 40px;
+      font-size: 1rem;
+      opacity: 0;
+      cursor: pointer;
+      z-index: 1;
+      transition: opacity $animationSpeed;
+    }
+
+    img {
+      object-fit: cover;
+      object-position: 0px -10px;
+      width: inherit;
+      aspect-ratio: 1 / 1;
+      border-radius: inherit;
+      transition: opacity $animationSpeed, transform $animationSpeed;
+    }
+  }
+}
+
+// Media Queries
+
+// Tablet
+
+@media screen and(min-width: 700px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Laptop
+
+@media screen and (min-width: 1024px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+  }
+}

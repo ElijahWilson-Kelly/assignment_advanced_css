@@ -1,0 +1,21 @@
+// Reset Before Adding Styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto";
+}
+
+// Imports
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap");
+
+@import "./testimonial";
+
+@import "./portfolio-grid";
+
+@import "./social-media-links";
+
+body {
+  min-height: 100vh;
+  background-color: #c3cfe2;
+}

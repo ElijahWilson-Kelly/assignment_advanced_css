@@ -1,0 +1,54 @@
+// Imports
+@import "./variables";
+@import "./mixins";
+
+// Testimonial
+.testimonial {
+  width: 340px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-rows: $paddingUpDown auto 80px auto $paddingUpDown;
+  grid-template-columns: $paddingLeftRight 1fr $paddingLeftRight;
+  border-radius: $borderRadius;
+  background-color: white;
+  box-shadow: 1px 1px 40px 0px #00000088;
+
+  .text {
+    @include paragraphStyles($paragraphGrey);
+    margin-bottom: 10px;
+    grid-area: 2 / 2 / 3 / 3;
+  }
+
+  img {
+    height: $imageSize;
+    grid-area: 3 / 2 / 4 / 3;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    margin: 0 auto;
+    border: 8px solid white;
+    object-fit: cover;
+    object-position: 0px -10px;
+    z-index: 1;
+  }
+
+  footer {
+    padding: $paddingUpDown $paddingLeftRight;
+    grid-area: 4 / 1 / -1 / -1;
+    background-color: $testimonialPurple;
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+    text-align: center;
+
+    .name {
+      margin-top: $imageSize / 2;
+      text-transform: uppercase;
+      color: white;
+      font-size: 1.6rem;
+      letter-spacing: 0.2rem;
+    }
+
+    .website {
+      @include paragraphStyles($websiteGrey);
+    }
+  }
+}

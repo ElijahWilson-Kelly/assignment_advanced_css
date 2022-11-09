@@ -1,0 +1,93 @@
+// Imports
+@import "./variables";
+@import "./mixins";
+
+// Social Media Links
+.social-media-container {
+  width: $socialMediaPanelHeight;
+  height: 100vh;
+  position: fixed;
+  right: 0;
+  top: 0;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  z-index: 3;
+
+  .social-media {
+    height: $socialMediaPanelHeight;
+    width: $socialMediaPanelWidth;
+    position: relative;
+    color: white;
+    right: 0;
+    transition: right $animationSpeed;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    &:hover {
+      right: $socialMediaPanelWidth - $socialMediaPanelHeight;
+    }
+
+    &::before {
+      display: inline-block;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      height: $socialMediaPanelHeight;
+      width: $socialMediaPanelHeight;
+      @include flexCenter();
+    }
+
+    .social-text {
+      font-size: 1rem;
+      font-weight: 100;
+      color: white;
+    }
+  }
+
+  .social-media.blog {
+    background-color: #e17b77;
+
+    &::before {
+      font: var(--fa-font-solid);
+      content: "\f5fc";
+    }
+  }
+
+  .social-media.twitter {
+    background-color: #00aced;
+
+    &::before {
+      font: var(--fa-font-brands);
+      content: "\f099";
+    }
+  }
+
+  .social-media.linkedin {
+    background-color: #007bb6;
+
+    &::before {
+      font: var(--fa-font-brands);
+      content: "\f0e1";
+    }
+  }
+
+  .social-media.facebook {
+    background-color: #3b5998;
+
+    &::before {
+      font: var(--fa-font-brands);
+      content: "\f39e";
+    }
+  }
+
+  .social-media.github {
+    background-color: #333;
+
+    &::before {
+      font: var(--fa-font-brands);
+      content: "\f09b";
+    }
+  }
+}
